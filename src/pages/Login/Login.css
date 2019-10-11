@@ -1,0 +1,9 @@
+.LoginWrapper {
+	/* display: flex; */
+	/* min-height: 100vh; */
+}
+.Login {
+	max-width: 400px;
+	width: 100%;
+	padding: 40px 20px;
+}

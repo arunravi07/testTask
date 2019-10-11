@@ -1,0 +1,35 @@
+.UserCards {
+	margin-bottom: 30px;
+	font-size: 14px;
+}
+.UserCards .UserImg {
+	width: 128px;
+	height: 128px;
+	border-radius: 50%;
+	overflow: hidden;
+	margin: 0 auto 20px;
+}
+.UserCards h3 {
+	margin-bottom: 5px;
+}
+.UserCards .Label {
+	font-size: 18px;
+	font-weight: 700;
+	margin-bottom: 5px;
+}
+.UserCards .Email {
+	margin-bottom: 10px;
+}
+.UserCards .Email a {
+	display: inline-block;
+	font-weight: 500;
+	font-size: 24px;
+	margin: 0 10px;
+}
+.UserCards .Location p {
+	margin-bottom: 0;
+}
+
+.UserCards .Dob {
+	margin-bottom: 10px;
+}
