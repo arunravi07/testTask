@@ -1,3 +1,10 @@
 .react-datepicker-wrapper {
 	width: 100%;
 }
+.react-datepicker-popper .react-datepicker {
+	font-size: 12px;
+}
+.react-datepicker .react-datepicker__header__dropdown select {
+	padding: 2px 5px;
+	margin-top: 5px;
+}

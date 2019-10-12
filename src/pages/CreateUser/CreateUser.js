@@ -141,6 +141,10 @@ class CreateUser extends Component {
 										selected={this.props.dateSelected}
 										onChange={this.handleDefault}
 										dateFormat="dd/MM/yyyy"
+										showMonthDropdown
+										showYearDropdown
+										dropdownMode="select"
+										maxDate={new Date()}
 									/>
 								</div>
 							</div>
