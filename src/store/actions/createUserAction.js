@@ -20,6 +20,7 @@ export const createUser = getuserData => {
 			data.user.username = getuserData.username;
 			data.user.password = getuserData.password;
 			data.user.phone = getuserData.phone;
+			data.user.dob = getuserData.dob;
 			existingData.push(data);
 			console.log(existingData);
 			LocalStore.putUserData(existingData);
@@ -28,6 +29,11 @@ export const createUser = getuserData => {
 			const error = 'No user data recieved';
 			dispatch(usersDidFailToLoad(error));
 		}
+	};
+};
+export const changeDateSelected = date => {
+	return async dispatch => {
+		dispatch(userSelectedDate(date));
 	};
 };
 
@@ -39,4 +45,8 @@ const usersDidFailToLoad = () => ({
 const usersDidLoad = users => ({
 	type: actionTypes.LOADING_USERS_DID_FINISH,
 	payload: users
+});
+const userSelectedDate = date => ({
+	type: actionTypes.USER_SELECTED_DATE,
+	date: new Date(date)
 });

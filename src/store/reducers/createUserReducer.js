@@ -1,7 +1,10 @@
 import * as actionTypes from '../action';
+let defaultDate = new Date();
 const initialState = {
 	isLoading: false,
 	loadingUsersFailed: null,
+	createUserCompleted: false,
+	defaultDate: defaultDate,
 	userData: {}
 };
 
@@ -16,6 +19,7 @@ const projectReducer = (state = initialState, action) => {
 			return {
 				...state,
 				isLoading: false,
+				createUserCompleted: true,
 				userData: action.payload
 			};
 		case actionTypes.LOADING_USERS_DID_FAIL:
@@ -23,6 +27,11 @@ const projectReducer = (state = initialState, action) => {
 				...state,
 				isLoading: false,
 				loadingUsersFailed: action.payload
+			};
+		case actionTypes.USER_SELECTED_DATE:
+			return {
+				...state,
+				defaultDate: action.date
 			};
 
 		default:

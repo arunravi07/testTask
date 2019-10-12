@@ -4,35 +4,35 @@ import { AvForm, AvField } from 'availity-reactstrap-validation';
 import DatePicker from 'react-datepicker';
 import 'react-datepicker/dist/react-datepicker.css';
 import { connect } from 'react-redux';
-import { createUser } from '../../store/actions/createUserAction';
+import {
+	createUser,
+	changeDateSelected
+} from '../../store/actions/createUserAction';
 import './CreateUser.css';
+import PreLoader from '../../components/PreLoader/PreLoader';
 
 class CreateUser extends Component {
-	state = {
-		defaultDate: new Date()
-	};
 	handleSubmit = (event, values) => {
 		event.persist();
-		console.log(values);
-		this.props.createUser(values);
+		this.props.createUser({
+			...values,
+			dob: this.props.dateSelected.getTime()
+		});
 	};
-	defaultDate = new Date();
+	// defaultDate = new Date();
 	// DatePicker
 	handleDefault = date => {
-		// this.setState((nextState) { defaultDate: date });
-		// console.log(date);
-		// return this.state.defaultDate;
+		this.props.changeDateSelected(date);
 	};
 	componentDidUpdate() {
-		if (this.props.createUser) {
-			console.log(this.props);
+		if (this.props.createUserCompleted) {
 			this.props.history.push('/users');
 		}
 	}
 	render() {
-		console.log(this.props);
 		return (
 			<Aux>
+				{this.props.isLoading && <PreLoader />}
 				<div className="LoginWrapper d-flex align-items-center justify-content-center">
 					<div className="Cards Login">
 						<h1 className="textCenter">CREATE USER</h1>
@@ -47,11 +47,10 @@ class CreateUser extends Component {
 										errorMessage: 'Select a valid Title'
 									}
 								}}
+								value="Mr"
 							>
-								<option defaultValue>Mr</option>
+								<option>Mr</option>
 								<option>Mrs</option>
-								<option>Miss</option>
-								<option>Ms</option>
 							</AvField>
 							<AvField
 								name="first"
@@ -139,7 +138,7 @@ class CreateUser extends Component {
 									<DatePicker
 										name="dob"
 										className="form-control"
-										selected={this.state.defaultDate}
+										selected={this.props.dateSelected}
 										onChange={this.handleDefault}
 									/>
 								</div>
@@ -170,9 +169,14 @@ class CreateUser extends Component {
 }
 const mapStateToProps = state => {
 	// console.log(state);
-	return { createUser: state.createUser.userData };
+	return {
+		createUser: state.createUser.userData,
+		dateSelected: state.createUser.defaultDate,
+		createUserCompleted: state.createUser.createUserCompleted,
+		isLoading: state.createUser.isLoading
+	};
 };
 export default connect(
 	mapStateToProps,
-	{ createUser }
+	{ createUser, changeDateSelected }
 )(CreateUser);

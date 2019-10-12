@@ -1,5 +1,6 @@
 import React from 'react';
 import './UserCards.css';
+import userImgDummy from '../../assets/images/user-dummy.png';
 // can be used to map through unknown key value pair objects
 // const createKeyPair = userData => {
 // 	let keys = Object.keys(userData);
@@ -17,7 +18,6 @@ import './UserCards.css';
 // 	});
 // 	return generatedCard;
 // };
-
 // export default UserCard;
 const userCard = props => {
 	// console.log(props.cardData);
@@ -36,7 +36,7 @@ const userCard = props => {
 						src={
 							props.cardData.picture
 								? props.cardData.picture.large
-								: ''
+								: userImgDummy
 						}
 						alt=""
 					/>
@@ -70,7 +70,7 @@ const userCard = props => {
 							props.cardData.dob
 						).getMonth() + 1}/${new Date(
 							props.cardData.dob
-						).getYear()}`}
+						).getFullYear()}`}
 					</div>
 				) : (
 					''
