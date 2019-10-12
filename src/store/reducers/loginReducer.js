@@ -37,6 +37,10 @@ const loginReducer = (state = initialState, action) => {
 				loginpage: true,
 				loginError: action.payload
 			};
+		case actionTypes.LOGOUT:
+			return {
+				state: {}
+			};
 		default:
 			return state;
 	}

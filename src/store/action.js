@@ -2,6 +2,7 @@ export const TOPBAR = 'topbar';
 export const FOOTER = 'footer';
 export const LOGINPAGE = 'loginpage';
 
+export const LOGOUT = 'logout';
 export const LOGIN_DID_START = 'logindidstart';
 export const LOGIN_DID_FINISH = 'logindidfinish';
 export const LOGIN_DID_FAIL = 'logindidfail';

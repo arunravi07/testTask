@@ -11,7 +11,7 @@ import * as LocalStore from '../../res/LocalStore';
 class Login extends Component {
 	handleSubmit = (event, values) => {
 		event.persist();
-		console.log(values);
+		// console.log(values);
 		this.props.loginRequest(values);
 	};
 	componentDidMount() {
@@ -83,7 +83,7 @@ class Login extends Component {
 }
 
 const mapStatetoProps = state => {
-	console.log(state);
+	// console.log(state);
 	return { isLoggedIn: state.login, isLoading: state.login.isLoading };
 };
 export default connect(

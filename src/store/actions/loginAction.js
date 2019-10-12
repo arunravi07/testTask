@@ -30,6 +30,13 @@ export const loginRequest = getuserData => {
 		}
 	};
 };
+export const logoutRequest = () => {
+	return async dispatch => {
+		LocalStore.logout();
+		const logoutSuccessMsg = 'Logout Success';
+		dispatch(logout(logoutSuccessMsg));
+	};
+};
 
 const loginDidStart = () => ({ type: actionTypes.LOGIN_DID_START });
 const loginDidFail = errMsg => ({
@@ -39,4 +46,8 @@ const loginDidFail = errMsg => ({
 const loginDidFinish = user => ({
 	type: actionTypes.LOGIN_DID_FINISH,
 	payload: user
+});
+const logout = logoutSuccessMsg => ({
+	type: actionTypes.LOGOUT,
+	payload: logoutSuccessMsg
 });

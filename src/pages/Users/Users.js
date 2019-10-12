@@ -71,7 +71,7 @@ class Users extends Component {
 }
 
 const mapStateToProps = state => {
-	console.log(state.users);
+	// console.log(state.users);
 	return {
 		userData: state.users.userData,
 		displayData: state.users.displayData,

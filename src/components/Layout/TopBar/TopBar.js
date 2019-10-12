@@ -1,15 +1,17 @@
 import React, { Component } from 'react';
-// import { connect } from 'react-redux';
-// import { searchInRedux } from '../../../store/actions/searchActions';
+import { connect } from 'react-redux';
+import { logoutRequest } from '../../../store/actions/loginAction';
 import LogoImg from '../../../assets/images/whiterabbit-logo.svg';
 import { Link } from 'react-router-dom';
 import './TopBar.css';
-import * as LocalStore from '../../../res/LocalStore';
+// import * as LocalStore from '../../../res/LocalStore';
 
 class TopBar extends Component {
-	logOut = () => {
-		LocalStore.logout();
+	logOut = event => {
+		event.persist();
+		this.props.logoutRequest();
 	};
+
 	render() {
 		return (
 			<div className="TopBar">
@@ -45,4 +47,15 @@ class TopBar extends Component {
 	}
 }
 
-export default TopBar;
+// export default TopBar;
+
+const mapStateToProps = state => {
+	// console.log(state);
+	return {
+		logoutRequest: state.logoutRequest
+	};
+};
+export default connect(
+	mapStateToProps,
+	{ logoutRequest }
+)(TopBar);
