@@ -39,14 +39,14 @@ export const changeDateSelected = date => {
 
 const loadingDidStart = () => ({ type: actionTypes.LOADING_USERS_DID_START });
 const usersDidFailToLoad = () => ({
-	type: actionTypes.LOADING_USERS_DID_FAIL,
+	type: actionTypes.CREATE_USER_DID_FAIL,
 	payload: 'error'
 });
 const usersDidLoad = users => ({
-	type: actionTypes.LOADING_USERS_DID_FINISH,
+	type: actionTypes.CREATE_USER_DID_FINISH,
 	payload: users
 });
 const userSelectedDate = date => ({
-	type: actionTypes.USER_SELECTED_DATE,
+	type: actionTypes.CREATE_USER_SELECTED_DATE,
 	date: new Date(date)
 });

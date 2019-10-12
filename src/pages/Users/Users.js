@@ -17,16 +17,11 @@ class Users extends Component {
 			return true;
 		};
 
-		if (isEmpty(this.props.userData)) {
-			if (
-				LocalStore.getUserData() &&
-				LocalStore.getUserData() !== undefined
-			) {
-				//checking if logged in:checking for userdata in localstore
-				await this.props.putUserData(LocalStore.getUserData());
-			} else {
-				await this.props.loadUser();
-			}
+		if (!isEmpty(LocalStore.getUserData())) {
+			//checking if logged in:checking for userdata in localstore
+			await this.props.putUserData(LocalStore.getUserData());
+		} else {
+			await this.props.loadUser();
 		}
 	};
 	render() {

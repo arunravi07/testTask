@@ -140,6 +140,7 @@ class CreateUser extends Component {
 										className="form-control"
 										selected={this.props.dateSelected}
 										onChange={this.handleDefault}
+										dateFormat="dd/MM/yyyy"
 									/>
 								</div>
 							</div>
